@@ -23,3 +23,8 @@
     width: 90%;
     height: 10vh;
 }
+
+input{
+    border: none;
+    border-bottom :2px solid black;
+}

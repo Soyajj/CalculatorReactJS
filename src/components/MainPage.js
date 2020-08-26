@@ -11,73 +11,12 @@ export class MainPage extends Component {
         }
     }
      
-    number0 = () =>{
+    number = (number) =>{
         this.setState({
-            number : this.state.number + '0',
+            number : this.state.number + number.toString(),
         })
     }
 
-    number1 = () =>{
-        this.setState({
-            number : this.state.number + '1',
-        })
-    }
-
-    number2 = () =>{
-        this.setState({
-            number : this.state.number + '2',
-        })
-    }
-
-
-    number3 = () =>{
-        this.setState({
-            number : this.state.number + '3',
-        })
-    }
-
-
-    number4 = () =>{
-        this.setState({
-            number : this.state.number + '4',
-        })
-    }
-
-
-    number5 = () =>{
-        this.setState({
-            number : this.state.number + '5',
-        })
-    }
-
-
-    number6 = () =>{
-        this.setState({
-            number : this.state.number + '6',
-        })
-    }
-
-
-    number7 = () =>{
-        this.setState({
-            number : this.state.number + '7',
-        })
-    }
-
-
-    number8 = () =>{
-        this.setState({
-            number : this.state.number + '8',
-        })
-    }
-
-
-    number9 = () =>{
-        this.setState({
-            number : this.state.number + '9',
-        })
-
-    }
 
     add = () =>{
         this.setState({
@@ -139,33 +78,43 @@ export class MainPage extends Component {
              value : ''
          })
      }
+
+     handleChange = (e) =>{
+         this.setState({
+             [e.target.name] : e.target.value,
+             number : e.target.value
+         })
+     }
     render() {
         return (
             <div className = "calculator">
+                <h1>Calculator</h1>
                 <div>
-                    <input type ="number" value={this.state.number} disabled = "true"/>
+                    <input type ="number" onChange = {this.handleChange} id="name" value={this.state.number}
+                        autocomplete = "off"
+                    />
                 </div>
                 <div>
-                    <button  className = "btn btn-primary" onClick = {this.number1}>1</button>
-                    <button  className = "btn btn-primary" onClick = {this.number2}>2</button>
-                    <button  className = "btn btn-primary" onClick = {this.number3}>3</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(1)}>1</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(2)}>2</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(3)}>3</button>
                     <button  className = "btn btn-dark" onClick ={this.mul}>*</button>
                 </div>
                 <div>
-                    <button  className = "btn btn-primary" onClick = {this.number4}>4</button>
-                    <button  className = "btn btn-primary" onClick = {this.number5}>5</button>
-                    <button  className = "btn btn-primary" onClick = {this.number6}>6</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(4)}>4</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(5)}>5</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(6)}>6</button>
                     <button className = "btn btn-dark"  onClick ={this.divide}>/</button>
                 </div>
                 <div>
-                    <button  className = "btn btn-primary" onClick = {this.number7}>7</button>
-                    <button  className = "btn btn-primary" onClick = {this.number8}>8</button>
-                    <button  className = "btn btn-primary" onClick = {this.number9}>9</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(7)}>7</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(8)}>8</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(9)}>9</button>
                     <button className = "btn btn-danger" onClick = {this.clear}>C</button>
                 </div>
                 <div>
                     <button className = "btn btn-dark"  onClick = {this.add}>+</button>
-                    <button  className = "btn btn-primary" onClick = {this.number0}>0</button>
+                    <button  className = "btn btn-primary" onClick = {()=>this.number(0)}>0</button>
                     <button className = "btn btn-dark"  onClick ={this.sub}>-</button>
                     <button  className = "btn btn-secondary" onClick = {this.result}>=</button>
                 </div>
